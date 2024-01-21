@@ -20,8 +20,26 @@ export async function main(ns) {
             let threadCountNeeded = Math.floor((ns.getServerMaxRam(serv) - ns.getServerUsedRam(serv)) / ns.getScriptRam(taskName));
 
             ns.scp(taskName, serv);
-            ns.brutessh(serv);
-            ns.nuke(serv);
+            // ns.brutessh(serv);
+            if (ns.fileExists("BruteSSH.exe", "home")) {
+                await ns.brutessh(serv);
+            }
+            if (ns.fileExists("FTPCrack.exe", "home")) {
+                await ns.ftpcrack(serv);
+            }
+            if (ns.fileExists("relaySMTP.exe", "home")) {
+                await ns.relaysmtp(serv);
+            }
+            if (ns.fileExists("HTTPWorm.exe", "home")) {
+                await ns.httpworm(serv);
+            }
+            if (ns.fileExists("SQLInject.exe", "home")) {
+                await ns.sqlinject(serv);
+            }
+            // ns.nuke(serv);
+            if (!ns.hasRootAccess(serv)) {
+                await ns.nuke(serv);
+            }
             ns.exec(taskName, serv, threadCountNeeded);
 
         }
