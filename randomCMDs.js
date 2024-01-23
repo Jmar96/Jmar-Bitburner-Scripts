@@ -66,6 +66,9 @@ run early-hack-template.js -t 6
 
 j0.msg 
 
+
+connect iron-gym
+connect CSEC
 run BruteSSH.exe
 run NUKE.exe
 backdoor
@@ -83,3 +86,27 @@ nuke: Not enough ports opened to use NUKE.exe virus.
 Stack:
 copy&RunScriptToEachServers.js:L42@Module.main
 ------------------------------------------------------
+
+
+
+jmsg = "Notice! Quantity exceeds the limit [" + svrLimit + "]. Quantity will be change from [" + quantity + "] to [" + svrLimit + "]";
+    
+To summarize, here is a list of everything you will LOSE when you install an Augmentation:
+
+    Stats/Skills
+    Money
+    Scripts on all servers EXCEPT your home computer
+    Purchased servers
+    Hacknet Nodes
+    Company/faction reputation
+    Jobs and Faction memberships
+    Programs
+    Stocks
+    TOR router
+
+Here is everything you will KEEP when you install an Augmentation:
+
+    Every Augmentation you have installed
+    Scripts on your home computer
+    RAM/Core Upgrades on your home computer
+    World Stock Exchange account and TIX API Access

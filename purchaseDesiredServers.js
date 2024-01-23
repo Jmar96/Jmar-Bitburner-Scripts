@@ -38,5 +38,5 @@ export async function main(ns) {
     await ns.sleep(1000);
     ns.tprint("---Server Purchased : " + serverName + i + "----");
   }
-  ns.tprint("==========DONE===========")
+  ns.tprint("==========DONE===========");
 }
