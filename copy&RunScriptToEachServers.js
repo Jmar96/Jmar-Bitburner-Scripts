@@ -43,7 +43,9 @@ export async function main(ns) {
                 if (!ns.hasRootAccess(serv)) {
                     await ns.nuke(serv);
                 }
-                ns.exec(taskName, serv, threadCountNeeded);
+                if (threadCountNeeded > 0) {
+                    ns.exec(taskName, serv, threadCountNeeded);
+                }
 
             } else {
                 ns.tprint("Exist (wont create) | Threads available: " + threadCountNeeded + " | " + serv);

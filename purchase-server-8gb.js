@@ -1,13 +1,14 @@
 /** @param {NS} ns */
 export async function main(ns) {
     // How much RAM each purchased server will have. In this case, it'll
-    // be 8GB.
-    const ram = 8;
+    const ram = 256;
 
     //your pruchased server name
-    const serverName = "jmarServer"
+    const serverName = "jServer-Batch02-svr"
     // Iterator we'll use for our loop
     let i = 0;
+    //script file name
+    const taskName = "early-hack-template.js";
 
     // Continuously try to purchase servers until we've reached the maximum
     // amount of servers
@@ -20,8 +21,9 @@ export async function main(ns) {
             //  3. Run our hacking script on the newly-purchased server with 3 threads
             //  4. Increment our iterator to indicate that we've bought a new server
             let hostname = ns.purchaseServer(serverName + i, ram);
-            ns.scp("early-hack-template.js", hostname);
-            ns.exec("early-hack-template.js", hostname, 3);
+            let threadCountNeeded = Math.floor((ns.getServerMaxRam(serverName + i) - ns.getServerUsedRam(serverName + i)) / ns.getScriptRam(taskName));
+            ns.scp(taskName, hostname);
+            ns.exec(taskName, hostname, threadCountNeeded);
             ++i;
         }
         //Make the script wait for a second before looping again.
