@@ -73,7 +73,7 @@ run BruteSSH.exe
 run NUKE.exe
 backdoor
 
-run autoHN-buy&upgrade.js 10 100 32 10
+run autoHN-buy&upgrade.js 6 200 64 12
 
 
 ERRORS i get
