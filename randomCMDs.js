@@ -110,3 +110,19 @@ Here is everything you will KEEP when you install an Augmentation:
     Scripts on your home computer
     RAM/Core Upgrades on your home computer
     World Stock Exchange account and TIX API Access
+
+
+Keyword	Color
+INFO	blue
+WARN	yellow
+WARNING	yellow
+ERROR	red
+/** @param {NS} ns **/
+export async function main(ns) {
+    ns.tprintf('INFO---available log colors:')
+    ns.tprintf('INFOthey only need to be at the start')
+    ns.tprintf(`otherwise INFO or others won't work`)
+    ns.tprintf('WARN this is a warning')
+    ns.tprintf('WARNING this is also warning')
+    ns.tprintf('ERROR this is an error')
+} 
