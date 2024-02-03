@@ -11,16 +11,16 @@ function dpList(ns, current = "home", set = new Set()) {
 export async function main(ns) {
   //copy and run script to each available server
   let availableServers = dpList(ns);
-  const taskName = "early-hack-template.js";
+  const taskName01 = "early-hack-template.js";
 
   for (let i = 0; i < availableServers.length; ++i) {
     const serv = availableServers[i];
-    let threadCountNeeded = Math.floor((ns.getServerMaxRam(serv) - ns.getServerUsedRam(serv)) / ns.getScriptRam(taskName));
+    let threadCountNeeded = Math.floor((ns.getServerMaxRam(serv) - ns.getServerUsedRam(serv)) / ns.getScriptRam(taskName01));
     let portsRequired = ns.getServerNumPortsRequired(serv);
     let p = 0;
 
     if (ns.getServerRequiredHackingLevel(serv) < ns.getHackingLevel()) {
-      if (!ns.fileExists(taskName, serv)) {
+      if (!ns.fileExists(taskName01, serv)) {
         if (threadCountNeeded > 0) {
 
           // ns.brutessh(serv);
@@ -47,12 +47,12 @@ export async function main(ns) {
           // if number of port mets then nuke and copy/run scripts
           if (p >= portsRequired) {
             ns.tprint("NotExist (will create) | Threads available: " + threadCountNeeded + " | " + serv);
-            ns.scp(taskName, serv);
+            ns.scp(taskName01, serv);
             // ns.nuke(serv);
             if (!ns.hasRootAccess(serv)) {
               await ns.nuke(serv);
             }
-            ns.exec(taskName, serv, threadCountNeeded);
+            ns.exec(taskName01, serv, threadCountNeeded);
           } else {
             ns.tprint("WARN::NotExist but Ports (P[" + p + "] > PR[" + portsRequired + "])| (wont create) | Threads available: " + threadCountNeeded + " | " + serv);
           }
