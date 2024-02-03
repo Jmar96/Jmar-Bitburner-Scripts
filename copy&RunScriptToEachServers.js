@@ -11,7 +11,12 @@ function dpList(ns, current = "home", set = new Set()) {
 export async function main(ns) {
   //copy and run script to each available server
   let availableServers = dpList(ns);
-  const taskName01 = "early-hack-template.js";
+  /*const taskName01 = "early-hack-template.js";
+  const taskName02 = "hackfoodnstuff.js";
+  const taskName03 = "hackjoesguns.js";
+  const taskName04 = "hacksigmaCosmetics.js";
+  const taskName05 = "weaken.js";*/
+  let taskNames = ["early-hack-template.js", "hackfoodnstuff.js", "hackjoesguns.js", "hacksigmaCosmetics.js"];
 
   for (let i = 0; i < availableServers.length; ++i) {
     const serv = availableServers[i];
@@ -20,10 +25,9 @@ export async function main(ns) {
     let p = 0;
 
     if (ns.getServerRequiredHackingLevel(serv) < ns.getHackingLevel()) {
-      if (!ns.fileExists(taskName01, serv)) {
-        if (threadCountNeeded > 0) {
-
-          // ns.brutessh(serv);
+      if (threadCountNeeded > 0) {
+        for (let t of taskNames) {
+          // ns.tprint(t);
           if (ns.fileExists("BruteSSH.exe", "home")) {
             await ns.brutessh(serv);
             p = p + 1;
@@ -46,27 +50,28 @@ export async function main(ns) {
           }
           // if number of port mets then nuke and copy/run scripts
           if (p >= portsRequired) {
-            ns.tprint("NotExist (will create) | Threads available: " + threadCountNeeded + " | " + serv);
-            ns.scp(taskName01, serv);
-            // ns.nuke(serv);
+            //if script exist then won't create
             if (!ns.hasRootAccess(serv)) {
-              await ns.nuke(serv);
+              if (!ns.fileExists(t, serv)) {
+                ns.tprint("NotExist (will create) | Threads available: " + threadCountNeeded + " | " + serv);
+                await ns.scp(taskName01, serv);
+                await ns.nuke(serv);
+                await ns.exec(taskName01, serv, threadCountNeeded);
+              } else {
+                ns.tprint("WARN::Exist (wont create) | Threads available: " + threadCountNeeded + " | " + serv);
+              }
             }
-            ns.exec(taskName01, serv, threadCountNeeded);
           } else {
             ns.tprint("WARN::NotExist but Ports (P[" + p + "] > PR[" + portsRequired + "])| (wont create) | Threads available: " + threadCountNeeded + " | " + serv);
           }
-
-        } else {
-          ns.tprint("WARN::NotExist but [O]Threads available (wont create) | Threads available: " + threadCountNeeded + " | " + serv);
         }
-
       } else {
-        ns.tprint("WARN::Exist (wont create) | Threads available: " + threadCountNeeded + " | " + serv);
+        ns.tprint("WARN::[O]Threads available | Threads available: " + threadCountNeeded + " | " + serv);
       }
+    }else{
+      ns.tprint("ERROR::Required hacking level not met.");
     }
 
   }
-
 
 }
