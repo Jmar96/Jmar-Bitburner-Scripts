@@ -126,3 +126,12 @@ export async function main(ns) {
     ns.tprintf('WARNING this is also warning')
     ns.tprintf('ERROR this is an error')
 } 
+
+
+64		1	2.6	64	6.037735849
+2.6		2	2.8		6.037735849
+4		3	2.6		6.037735849
+		4	2.6		6.037735849
+			2.65		
+			2.65		
+					
