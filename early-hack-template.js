@@ -2,7 +2,7 @@
 export async function main(ns) {
     // Defines the "target server", which is the server
     // that we're going to hack. In this case, it's "n00dles"
-    const target = "joesguns";
+    const target = "n00dles";
 
     // Defines how much money a server should have before we hack it
     // In this case, it is set to the maximum amount of money.
@@ -18,21 +18,33 @@ export async function main(ns) {
     if (ns.fileExists("BruteSSH.exe", "home")) {
         ns.brutessh(target);
     }
-
+    if (ns.fileExists("FTPCrack.exe", "home")) {
+      ns.ftpcrack(target);
+    }
+    if (ns.fileExists("relaySMTP.exe", "home")) {
+      ns.relaysmtp(target);
+    }
+    if (ns.fileExists("HTTPWorm.exe", "home")) {
+      ns.httpworm(target);
+    }
+    if (ns.fileExists("SQLInject.exe", "home")) {
+      ns.sqlinject(target);
+    }
+  
     // Get root access to target server
     ns.nuke(target);
-
+  
     // Infinite loop that continously hacks/grows/weakens the target server
-    while(true) {
-        if (ns.getServerSecurityLevel(target) > securityThresh) {
-            // If the server's security level is above our threshold, weaken it
-            await ns.weaken(target);
-        } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {
-            // If the server's money is less than our threshold, grow it
-            await ns.grow(target);
-        } else {
-            // Otherwise, hack it
-            await ns.hack(target);
-        }
+    while (true) {
+      if (ns.getServerSecurityLevel(target) > securityThresh) {
+        // If the server's security level is above our threshold, weaken it
+        await ns.weaken(target);
+      } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {
+        // If the server's money is less than our threshold, grow it
+        await ns.grow(target);
+      } else {
+        // Otherwise, hack it
+        await ns.hack(target);
+      }
     }
 }

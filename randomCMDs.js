@@ -135,3 +135,14 @@ export async function main(ns) {
 			2.65		
 			2.65		
 					
+
+let taskNames = [
+  "early-hack-template.js"
+, "hackfoodnstuff.js"
+, "hackjoesguns.js"
+, "hacksigmaCosmetics.js"
+, "hacknectarNet.js"];
+
+
+
+harakiri-sushi
