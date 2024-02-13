@@ -78,7 +78,12 @@ export async function main(ns) {
   const taskName03 = "hackjoesguns.js";
   const taskName04 = "hacksigmaCosmetics.js";
   const taskName05 = "weaken.js";*/
-  let taskNames = ["early-hack-template.js", "hackfoodnstuff.js", "hackjoesguns.js", "hacksigmaCosmetics.js", "hacknectarNet.js", "hackhongFangTea.js", "hack-max-hardware.js", "hackharakiri-sushi.js", "hack-neo-net.js", "hack-iron-gym.js"];
+  let taskNames = ["early-hack-template.js", "hackfoodnstuff.js", "hackjoesguns.js"
+                    , "hacksigmaCosmetics.js", "hacknectarNet.js", "hackhongFangTea.js"
+                    , "hack-max-hardware.js", "hackharakiri-sushi.js", "hack-neo-net.js"
+                    , "hack-iron-gym.js", "hack-CSEC.js", "hack-darkweb.js"
+                    , "hack-omega-net.js", "hack-crush-fitness.js", "hack-silver-helix.js"
+                    , "hack-zer0.js", "hack-millenium-fitness.js", "hack-rothman-uni.js"];
   let firstTaskName = taskNames[0];
   // var resultMsg = "Undefined!";
   while (true) {

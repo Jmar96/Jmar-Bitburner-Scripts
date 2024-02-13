@@ -144,5 +144,24 @@ let taskNames = [
 , "hacknectarNet.js"];
 
 
+early-hack-template.js
+hack-CSEC.js
+hack-darkweb.js
+hack-iron-gym.js
+hack-max-hardware.js
+hack-neo-net.js
+hack-zer0.js
+hackfoodnstuff.js
+hackharakiri-sushi.js
+hackhongFangTea.js
+hackjoesguns.js
+hacknectarNet.js
+hacksigmaCosmetics.js
 
-harakiri-sushi
+let taskNames = ["early-hack-template.js", "hackfoodnstuff.js", "hackjoesguns.js"
+                    , "hacksigmaCosmetics.js", "hacknectarNet.js", "hackhongFangTea.js"
+                    , "hack-max-hardware.js", "hackharakiri-sushi.js", "hack-neo-net.js"
+                    , "hack-iron-gym.js", "hack-CSEC.js", "hack-darkweb.js"
+                    , "hack-omega-net.js", "hack-crush-fitness.js", "hack-silver-helix.js"
+                    , "hack-zer0.js", "hack-millenium-fitness.js", "hack-rothman-uni.js"];
+  
